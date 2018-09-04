@@ -1,6 +1,9 @@
 //Load express
 const express = require("express");
 const app = express();
+const bodyParser=require("body-parser");
+//configure bodyParser.
+app.use(bodyParser.json());
 //Load mongoosee
 const mongoose = require("mongoose");
 //Connect
@@ -18,7 +21,8 @@ app.get("/", (req, res) => {
 //Create func
 app.post("/book",(req,res)=>{
 //This is our create func
-
+  console.log(req.body);
+  res.send("Testing our book route!");
 });
 
 //Open express server
