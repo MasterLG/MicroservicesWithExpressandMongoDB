@@ -10,8 +10,15 @@ mongoose.connect(
     console.log("DB Connected!");
   }
 );
+
 app.get("/", (req, res) => {
   res.send("This is our main endpoint!This is the book service.");
+});
+
+//Create func
+app.post("/book",(req,res)=>{
+//This is our create func
+
 });
 
 //Open express server
