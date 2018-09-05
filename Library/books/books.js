@@ -13,7 +13,7 @@ const Book = mongoose.model("Book");
 
 //Connect
 mongoose.connect(
-  "mongodb://XXX:XXX@ds245022.mlab.com:45022/booksservice",
+  "mongodb://xxx:xxx@ds245022.mlab.com:45022/booksservice",
   () => {
     console.log("DB Connected!");
   }
@@ -48,6 +48,36 @@ app.post("/book", (req, res) => {
       }
     });
   res.send("A new book is created with success!");
+});
+
+app.get("/books", (req, res) => {
+  Book.find()
+    .then(books => {
+      //console.log(books);//For Testing Purposes
+      res.json(books);
+    })
+    .catch(err => {
+      if (err) {
+        throw err;
+      }
+    });
+});
+
+app.get("/book/:id", (req, res) => {
+  Book.findById(req.params.id)
+    .then(book => {
+      if (book) {
+        //if book exists
+        res.json(book); //return data
+      } else {
+        res.sendStatus(404); //else return 404
+      }
+    })
+    .catch(err => {
+      if (err) {
+        throw err;
+      }
+    });
 });
 
 //Open express server
