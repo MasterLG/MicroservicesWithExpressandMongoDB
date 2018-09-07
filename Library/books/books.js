@@ -13,7 +13,7 @@ const Book = mongoose.model("Book");
 
 //Connect
 mongoose.connect(
-  "mongodb://xxx:xxx@ds245022.mlab.com:45022/booksservice",
+  "mongodb://eduonix:password1@ds245022.mlab.com:45022/booksservice",
   () => {
     console.log("DB Connected!");
   }
@@ -74,6 +74,16 @@ app.get("/book/:id", (req, res) => {
       }
     })
     .catch(err => {
+      if (err) {
+        throw err;
+      }
+    });
+});
+
+app.delete("/book/:id",(req,res)=>{
+  Book.findByIdAndRemove(req.params.id).then(()=>{
+      res.send("Book deleted with success!")
+  }).catch(err => {
       if (err) {
         throw err;
       }
