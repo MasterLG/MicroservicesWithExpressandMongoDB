@@ -13,7 +13,7 @@ const Book = mongoose.model("Book");
 
 //Connect
 mongoose.connect(
-  "mongodb://eduonix:password1@ds245022.mlab.com:45022/booksservice",
+  "mongodb://xxx:xxx@ds245022.mlab.com:45022/booksservice",
   () => {
     console.log("DB Connected!");
   }

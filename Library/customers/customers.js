@@ -6,7 +6,7 @@ const bodyParser=require("body-parser")
 app.use(bodyParser.json())
 
 mongoose.connect(
-    "mongodb://eduonix:password1@ds249092.mlab.com:49092/customersservice",
+    "mongodb://xxx:xxx@ds249092.mlab.com:49092/customersservice",
     ()=>{
     console.log("Database connected - Customers Service");
 });
