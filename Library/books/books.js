@@ -80,10 +80,12 @@ app.get("/book/:id", (req, res) => {
     });
 });
 
-app.delete("/book/:id",(req,res)=>{
-  Book.findByIdAndRemove(req.params.id).then(()=>{
-      res.send("Book deleted with success!")
-  }).catch(err => {
+app.delete("/book/:id", (req, res) => {
+  Book.findByIdAndRemove(req.params.id)
+    .then(() => {
+      res.send("Book deleted with success!");
+    })
+    .catch(err => {
       if (err) {
         throw err;
       }
